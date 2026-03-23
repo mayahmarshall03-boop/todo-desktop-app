@@ -18,6 +18,7 @@
   "build": {
     "appId": "com.mariyah.todo",
     "mac": {
+      "icon": "planet-app-icon.png",
       "category": "public.app-category.productivity"
     }
   }
