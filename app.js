@@ -49,7 +49,7 @@ function toggleComplete(checkbox){
 
 
 function deleteTask(button) {
-    const taskItem = button.parentElement;
+    const taskItem = button.closest('li');
     taskItem.remove();
     saveTasks();
 }
