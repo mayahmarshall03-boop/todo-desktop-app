@@ -1,0 +1,103 @@
+body {
+    font-family: 'Bradley Hand';
+    background:  url('purple_background.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    
+}
+.todo-container{
+    width: 380px;
+    margin: 40px auto;
+    background: #4b0082;
+    padding: 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    
+   
+}
+
+.todo-container,h1{
+    text-align: center;
+}
+input, select {
+    width: 60%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #c7bfff;
+    background: #F4DAF9;
+    color: #9fafff;
+    font-size: 16px;
+
+
+}#add-task-button {
+    background-color: #9570DD;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #F4DAF9;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 5px;
+}
+
+#task-list {
+    margin-top: 20px;
+    padding-left: 0;
+    text-align: left;
+}
+
+.task {
+    list-style: none;
+    background: #F4DAF9;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.task button {
+    background: #9570DD;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 10px;
+    color: white;
+    transition: 0.2s;
+    margin-left: 0;
+}
+.task-buttons {
+    margin-left: auto;   /* pushes the whole button group to the right */
+    display: flex;
+    gap: 8px;            /* spacing between edit + delete */
+}
+
+.task input[type="checkbox"] {
+    width: auto;        /* undo the 60% width */
+    padding: 0;         /* remove padding */
+    margin: 0;          /* keep it tight to the left */
+    transform: scale(1.2); /* optional: make it cuter */
+}
+
+.high {
+    border-left: 6px solid #240046;
+    background-color: #3c096c;
+    
+}
+
+.medium {
+    border-left: 6px solid #7f00ff;
+    background-color: #993afe;
+}
+
+.low {
+    border-left: 6px solid #c49dff;
+    background-color: #d9bcff;
+}
+
+.completed span {
+    text-decoration: line-through;
+     opacity: 0.6;
+}
