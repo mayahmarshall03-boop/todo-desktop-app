@@ -40,6 +40,11 @@ input, select {
     transition: 0.2s;
     margin-left: 5px;
 }
+#add-task-button:hover {
+    background-color: #A074F5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+}
 
 #task-list {
     margin-top: 20px;
@@ -100,4 +105,38 @@ input, select {
 .completed span {
     text-decoration: line-through;
      opacity: 0.6;
+}
+
+#sort-priority-button {
+    background-color: #B38CFF; /* soft pastel purple */
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #F4DAF9;
+    cursor: pointer;
+    transition: 0.2s ease;
+    margin-left: 5px;
+    margin-top: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+#sort-priority-button:hover {
+    background-color: #A074F5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+}
+
+#cute-date {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    background: #9570DD;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #F4DAF9;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    opacity: 0.9;
+
 }

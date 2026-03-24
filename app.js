@@ -19,6 +19,8 @@ function addTask(){
     const taskItem = document.createElement('li');
     taskItem.className = 'task';
 
+    
+
     //Adding task priority level
     const priority = document.getElementById('priority-select').value;
     taskItem.classList.add(priority);
@@ -55,7 +57,7 @@ function deleteTask(button) {
 }
 
 function editTask(button){
-    const taskItem = button.parentElement;
+    const taskItem = button.closest('li');
     const span = taskItem.querySelector('span');
 
     const newText = prompt("Edit your task:", span.textContent);
@@ -64,6 +66,44 @@ function editTask(button){
         saveTasks()
     }
 }
+
+//gives the ability to sort tasks
+new Sortable(document.getElementById("task-list"), {
+    animation: 150,
+    onEnd: saveTasks
+});
+
+//sorting tasks
+function sortTasksInDOM() {
+    const taskList = document.getElementById("task-list");
+    const tasks = Array.from(taskList.children);
+
+    tasks.sort((a, b) => {
+        const order = { high: 1, medium: 2, low: 3 };
+
+        const aPriority = a.classList.contains("high")
+            ? "high"
+            : a.classList.contains("medium")
+            ? "medium"
+            : "low";
+
+        const bPriority = b.classList.contains("high")
+            ? "high"
+            : b.classList.contains("medium")
+            ? "medium"
+            : "low";
+
+        return order[aPriority] - order[bPriority];
+    });
+
+    tasks.forEach(task => taskList.appendChild(task));
+}
+document.getElementById("sort-priority-button").addEventListener("click", () => {
+    sortTasksInDOM();
+    saveTasks();
+});
+
+
 // this saves todo list info for reopenning the app
 function saveTasks(){
     const tasks = [];
@@ -86,9 +126,17 @@ function saveTasks(){
         });
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
-
+    
 }
 
+//adding the date to the top
+function updateCuteDate() {
+    const date = new Date();
+    const options = { month: "short", day: "numeric" };
+    document.getElementById("cute-date").textContent = date.toLocaleDateString("en-US", options);
+}
+
+updateCuteDate();
 //Loading tasks when page starts 
 function loadTasks() {
     const saved = JSON.parse(localStorage.getItem('tasks')) || [];
